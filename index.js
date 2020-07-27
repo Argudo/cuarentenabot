@@ -68,7 +68,7 @@ bot.on('message', msg=>{
 
 bot.on('message', msg=>{
     if(msg.content === '.list'){
-        msg.reply('\n1 - Alto Puto\n2 - Father on father\n3 - DjAbascal\n4 - Fvirgolini\n5 - Subnormal\n6 - Doraimon\n7 - Yeet\n8 - Insultos\n9 - Anda con Dioh\n 10 - Mongolo');
+        msg.reply('\n1 - Alto Puto\n2 - Father on father\n3 - DjAbascal\n4 - Fvirgolini\n5 - Subnormal\n6 - Doraimon\n7 - Yeet\n8 - Insultos\n9 - Anda con Dioh\n10 - Mongolo');
         let filter = m => !m.author.bot;
         let collector = new Discord.MessageCollector(msg.channel, filter, {max:1});
         collector.on('collect', (m, col) => {
