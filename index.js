@@ -117,7 +117,7 @@ bot.on('message', msg=>{
     }
 })
 bot.on('message', msg=>{
-    if(msg.member.user.tag.startsWith('Ryt')){
+    if(msg.member.user.tag.startsWith('Rythm')){
         sleep(5000);
         msg.delete();
     }
