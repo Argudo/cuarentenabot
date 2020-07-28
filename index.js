@@ -77,11 +77,16 @@ bot.on('message', msg=>{
     isReady = true;
     msg.delete();
     }
+    else if(msg.content === 'enzarpaisimo' && isReady){
+    playAudio('14',msg);
+    isReady = true;
+    msg.delete();
+    }
 })
 
 bot.on('message', msg=>{
     if(msg.content === '.list'){
-        msg.reply('\n1 - Alto Puto\n2 - Father on father\n3 - DjAbascal\n4 - Fvirgolini\n5 - Subnormal\n6 - Doraimon\n7 - Yeet\n8 - Insultos\n9 - Anda con Dioh\n10 - Mongolo\n11 - Armagedon\n12 - Me sua la polla\n12 - Cuaderno de cuadrito');
+        msg.reply('\n1 - Alto Puto\n2 - Father on father\n3 - DjAbascal\n4 - Fvirgolini\n5 - Subnormal\n6 - Doraimon\n7 - Yeet\n8 - Insultos\n9 - Anda con Dioh\n10 - Mongolo\n11 - Armagedon\n12 - Me sua la polla\n13 - Cuaderno de cuadrito\n14 - Enzarpaisimo');
         let filter = m => !m.author.bot;
         let collector = new Discord.MessageCollector(msg.channel, filter, {max:1});
         collector.on('collect', (m, col) => {
@@ -223,6 +228,13 @@ function playAudio(num, msg){
             msg.member.voice.channel.join()
             .then(connection => {
                 const dispatcher = connection.play(require("path").join(__dirname, './cuadrito.mp3'));
+                dispatcher.on('finish', finish => voiceChannel.leave());
+        })
+        case '14':
+            var voiceChannel = msg.member.voice.channel;
+            msg.member.voice.channel.join()
+            .then(connection => {
+                const dispatcher = connection.play(require("path").join(__dirname, './enzarpaisimo.mp3'));
                 dispatcher.on('finish', finish => voiceChannel.leave());
         })
     }
