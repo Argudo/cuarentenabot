@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 var isReady = true;
+const PREFIX = '!';
 
 bot.on('ready', () =>{
     console.log("Estoy online muyayo!");
