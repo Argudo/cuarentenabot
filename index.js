@@ -105,7 +105,7 @@ bot.on('message', msg=>{
             msg.delete();
         })
     }
-    else if(msg.startsWith('.play')){
+    else if(msg.content.startsWith('.play')){
         let args = msg.content.substring(PREFIX.length).split(" ");
         playAudio(args[1], msg)
         console.log("Reproduciendo " + args[1]);
