@@ -93,6 +93,11 @@ bot.on('message', msg=>{
         isReady = true;
         msg.delete();
     }
+    else if(msg.content === 'depredador' && isReady){
+        playAudio('17',msg);
+        isReady = true;
+        msg.delete();
+    }
 })
 
 bot.on('message', msg=>{
@@ -266,6 +271,13 @@ function playAudio(num, msg){
             msg.member.voice.channel.join()
             .then(connection => {
                 const dispatcher = connection.play(require("path").join(__dirname, './respeto.mp3'));
+                dispatcher.on('finish', finish => voiceChannel.leave());
+        })
+        case '17':
+            var voiceChannel = msg.member.voice.channel;
+            msg.member.voice.channel.join()
+            .then(connection => {
+                const dispatcher = connection.play(require("path").join(__dirname, './depredador.mp3'));
                 dispatcher.on('finish', finish => voiceChannel.leave());
         })
     }
